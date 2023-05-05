@@ -29,7 +29,7 @@ for entry in feed.entries:
       obj["youtube"] = m.group(0)
     obj['original_content'] = re.sub('<\/?\w[^>]*>|&(|#)(\w)+;', '', c.value)
     break;
-  outDir = os.path.join("out", "hackaday")
+  outDir = os.path.join("docs", "hackaday")
   outFile = os.path.join(outDir, filename + ".json")
   if os.path.isfile(outFile):
     print(filename + " already exists")

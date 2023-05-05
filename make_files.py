@@ -4,8 +4,8 @@
 import json
 import os
 
-jsonDir = os.path.join("out", "hackaday")
-outFile = os.path.join("out", "hackaday.json")
+jsonDir = os.path.join("docs", "hackaday")
+outFile = os.path.join("docs", "hackaday.json")
 
 files = os.listdir(jsonDir)
 obj = {"files": files}
