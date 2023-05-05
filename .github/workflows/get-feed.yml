@@ -43,3 +43,15 @@ jobs:
           git add .
           git commit -m "`date`"
           git push
+      - name: call OpenAI
+        run: sh process_all.sh
+      - name: commit feed again
+        env:
+          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
+        run: |
+          git config user.name  "inajob"
+          git config user.email "inajob@users.noreply.github.com"
+          git add .
+          git commit -m "`date`"
+          git push
+
