@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: #000;
+                color: white;
+            }
+            a{
+                color: #aaf;
+            }
+            .piece{
+                display: block;
+                border:solid 1px;
+                margin: 2px;
+            }
+            .piece img{
+                width:200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>chatgpt summarizer</h1>
+        <h2>from hackaday</h2>
+        <div id="contents"></div>
+        <script id="template-piece" type="text/template">
+            <a href="{{link}}" class="piece">
+                <div>{{title}}</div>
+                <div>
+                    <div><img src="{{thumb}}" /></div>
+                </div>
+            </a>
+        </script>
+        <script>
+            <!--
+                let template = document.getElementById("template-piece");
+                let templateHtml = template.innerHTML
+                let contents = document.getElementById("contents")
+                let fillTemplate = (data) => {
+                    return templateHtml.replace(/{{link}}/g, data.link)
+                                          .replace(/{{title}}/g, data.title)
+                                          .replace(/{{thumb}}/g, data.thumbnail)
+                }
+                fetch('hackaday.json')
+                .then(resp => resp.json())
+                .then(data => {
+                    data.files.forEach((f) => {
+                        if(f.endsWith(".json")){
+                            console.log(f)
+                            fetch("hackaday/" + encodeURIComponent(f))
+                            .then(resp => resp.json())
+                            .then(data => {
+                                console.log(data)
+                                let elm = document.createElement("div")
+                                elm.innerHTML = fillTemplate(data)
+                                contents.appendChild(elm)
+                            })
+                        }
+                    })
+                })
+                -->
+        </script>
+    </body>
+</html>
