@@ -16,6 +16,9 @@
             .piece img{
                 width:200px;
             }
+            .flex{
+                display: flex;
+            }
         </style>
     </head>
     <body>
@@ -23,12 +26,13 @@
         <h2>from hackaday</h2>
         <div id="contents"></div>
         <script id="template-piece" type="text/template">
-            <a href="{{link}}" class="piece">
-                <div>{{title}}</div>
-                <div>
+            <div class="piece">
+                <div><a href="{{link}}">{{title}}</a></div>
+                <div class="flex">
                     <div><img src="{{thumb}}" /></div>
+                    <!--<div>{{body}}</div>-->
                 </div>
-            </a>
+            </div>
         </script>
         <script>
             <!--
@@ -39,23 +43,27 @@
                     return templateHtml.replace(/{{link}}/g, data.link)
                                           .replace(/{{title}}/g, data.title)
                                           .replace(/{{thumb}}/g, data.thumbnail)
+                                          //.replace(/{{body}}/g, data.body)
                 }
                 fetch('hackaday.json')
                 .then(resp => resp.json())
                 .then(data => {
-                    data.files.forEach((f) => {
-                        if(f.endsWith(".json")){
-                            console.log(f)
-                            fetch("hackaday/" + encodeURIComponent(f))
-                            .then(resp => resp.json())
-                            .then(data => {
-                                console.log(data)
-                                let elm = document.createElement("div")
-                                elm.innerHTML = fillTemplate(data)
-                                contents.appendChild(elm)
-                            })
+                    const fn = async () => {
+                        for(const i in data.files){
+                            if(!data.files[i].endsWith(".json")){
+                                continue
+                            }
+                            await fetch("hackaday/" + encodeURIComponent(data.files[i]))
+                                .then(resp => resp.json())
+                                .then(data => {
+                                    console.log(data)
+                                    let elm = document.createElement("div")
+                                    elm.innerHTML = fillTemplate(data)
+                                    contents.appendChild(elm)
+                                })
                         }
-                    })
+                    }
+                    fn();
                 })
                 -->
         </script>
