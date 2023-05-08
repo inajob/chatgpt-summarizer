@@ -7,7 +7,8 @@ import os
 jsonDir = os.path.join("docs", "hackaday")
 outFile = os.path.join("docs", "hackaday.json")
 
-files = os.listdir(jsonDir).sort()
+files = os.listdir(jsonDir)
+files.sort()
 obj = {"files": files}
 
 with open(outFile, "w+") as f:
