@@ -49,7 +49,7 @@
                 .then(resp => resp.json())
                 .then(data => {
                     const fn = async () => {
-                        for(const i in data.files){
+                        for(const i in data.files.reverse()){
                             if(!data.files[i].endsWith(".json")){
                                 continue
                             }
