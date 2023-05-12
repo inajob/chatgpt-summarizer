@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
     <head>
+        <meta charset="UTF-8">
+        <title>ChatGPTによる日本語タイトル作成</title>
         <style>
             body{
                 background-color: #000;
@@ -9,6 +12,7 @@
                 color: #aaf;
             }
             #contents{
+                overflow:hidden;
             }
             .piece{
                 display: block;
@@ -34,9 +38,12 @@
         </script>
     </head>
     <body>
-        <h1>chatgpt summarizer</h1>
-        <h2>from hackaday</h2>
+        <h1>ChatGPTによる日本語タイトル作成</h1>
+        <h2>from <a href="https://hackaday.com/blog/">Hackaday</a></h2>
+        <p>HackadayのRSSフィードを元にChatGPT3.5で日本語タイトルを生成しています。リンク先は元記事（英語）です</p>
         <div id="contents"></div>
+        <p>つくったひと: <a href="https://twitter.com/ina_ani">@ina_ani</a></p>
+        <p>ほかにつくったもの: <a href="https://inajob.github.io/intro/index.html">inajobの自己紹介ページ</a></p>
         <script id="template-piece" type="text/template">
             <div class="piece">
                 <div><a href="{{link}}">{{title}}</a></div>
