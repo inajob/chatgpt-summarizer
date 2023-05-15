@@ -22,7 +22,7 @@
                 width: 200px;
                 height: 250px;
             }
-            .piece img{
+            .piece .thumb{
                 width:200px;
             }
             .flex{
@@ -58,9 +58,9 @@
         <p>ほかにつくったもの: <a href="https://inajob.github.io/intro/index.html">inajobの自己紹介ページ</a></p>
         <script id="template-piece" type="text/template">
             <div class="piece">
-                <div><a href="{{link}}">{{title}}</a></div>
+                <div><a href="{{link}}" target="_blank">{{title}}</a><a href="https://b.hatena.ne.jp/entry/{{link}}" target="_blank"><img src="https://b.hatena.ne.jp/entry/image/{{link}}"></a></div>
                 <div class="flex">
-                    <div><img src="{{thumb}}" /></div>
+                    <div><img class="thumb" src="{{thumb}}" /></div>
                     <!--<div>{{body}}</div>-->
                 </div>
             </div>
