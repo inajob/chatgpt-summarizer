@@ -25,7 +25,7 @@ if obj.get("title") != None:
   sys.exit()
 
 response = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
+  model="gpt-4o-mini",
   messages=[
     {"role": "system", "content": "あなたは英語の文章を翻訳して50文字の日本語に要約するシステムです"},
     {"role": "user", "content": "私は電子工作に興味があり、自分で物を作ることが好きです。ハードウェアやソフトウェアの知識もあります。"},
@@ -35,7 +35,7 @@ response = openai.ChatCompletion.create(
 body = response["choices"][0]["message"]["content"]
 
 response = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
+  model="gpt-4o-mini",
   messages=[
     {"role": "system", "content": "あなたは英語の文章から5つの日本語のタイトルを作成するシステムです。"},
     {"role": "system", "content": "記事の内容を要約し簡潔なタイトルを箇条書きで作成します。このタイトルは電子工作に興味のある読者をターゲットにしています。"},
